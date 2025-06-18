@@ -57,3 +57,23 @@ body {
 .font-paperlogy {
   font-family: "Paperlogy-8ExtraBold", sans-serif; /* 다른 폰트와의 대체를 위해 sans-serif 추가 */
 }
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float-animation {
+  animation: float 2s ease-in-out infinite;
+}
+
+.about-container .about-box:nth-of-type(odd) {
+  transform: translateY(1rem);
+}

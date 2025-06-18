@@ -1,21 +1,51 @@
-import Swiper from "swiper";
-import "swiper/css";
+import { ProjectContainer } from "@/app/componet/project/Container";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+} from "react-icons/si";
+import { Popup } from "@/app/componet/project/popup";
+import { useState } from "react";
 
 export const ProjectsPage = () => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const handlePopupOpen = () => setIsPopupOpen(true);
+  const handlePopupClose = () => setIsPopupOpen(false);
+
   return (
-    <section className="p-8 bg-white rounded-lg shadow-md w-full h-[100vh] flex flex-col items-center justify-center">
-      <h2 className="text-2xl font-bold mb-4 text-center">Projects</h2>
-      <ul className="space-y-4">
-        <li className="border p-4 rounded-lg transition-transform transform hover:scale-105">
-          <h3 className="text-xl font-semibold">Project One</h3>
-          <p className="text-gray-600">Description of project one.</p>
-        </li>
-        <li className="border p-4 rounded-lg transition-transform transform hover:scale-105">
-          <h3 className="text-xl font-semibold">Project Two</h3>
-          <p className="text-gray-600">Description of project two.</p>
-        </li>
-        {/* Add more projects as needed */}
-      </ul>
+    <section
+      className="p-[3rem] flex flex-col justify-center w-full min-h-screen gap-[2rem]
+  bg-gradient-to-b from-[#E6EDF3] via-[#F0F4F8] to-[#ffffff] text-gray-800"
+    >
+      <h2 className="text-3xl font-bold text-center">Projects</h2>
+      <div className="max-w-5xl mx-auto">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <ProjectContainer
+            title="스터디 메이트"
+            content="사용자 기반 스터디 그룹 생성 및 참여 기능을 제공하는 웹 플랫폼입니다."
+            techStack={[
+              { icon: <SiNextdotjs size={20} />, label: "Next.js" },
+              { icon: <SiTypescript size={20} />, label: "TypeScript" },
+              { icon: <SiTailwindcss size={20} />, label: "TailwindCSS" },
+            ]}
+            onClick={handlePopupOpen}
+          />
+          <ProjectContainer
+            title="스터디 메이트"
+            content="사용자 기반 스터디 그룹 생성 및 참여 기능을 제공하는 웹 플랫폼입니다."
+            techStack={[
+              { icon: <SiReact size={20} />, label: "React" },
+              { icon: <SiNextdotjs size={20} />, label: "Next.js" },
+              { icon: <SiTypescript size={20} />, label: "TypeScript" },
+              { icon: <SiTailwindcss size={20} />, label: "TailwindCSS" },
+            ]}
+            onClick={handlePopupOpen}
+          />
+          {isPopupOpen && <Popup onClose={handlePopupClose} />}
+        </div>
+      </div>
     </section>
   );
 };
