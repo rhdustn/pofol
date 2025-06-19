@@ -8,34 +8,42 @@ interface ExperienceItem {
 }
 
 interface ExperienceProps {
-  experiences: ExperienceItem[];
+  data: ExperienceItem[];
 }
 
-export const ExperienceSection = ({ experiences }: ExperienceProps) => {
+export const EducationSection = ({ data }: ExperienceProps) => {
   return (
-    <section className="max-w-4xl mx-auto p-6  bg-white rounded-lg shadow-md ">
-      <div className="flex flex-col space-y-8">
-        {experiences.map(
+    <section className="max-w-4xl mx-auto p-8 w-full ">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        {data.map(
           ({ id, company, position, period, description, techStack }) => (
-            <div key={id} className="border-l-4 border-[#418399] pl-6">
+            <div
+              key={id}
+              className="pl-6  relative  border-4 border-[#BFD9E5] rounded-lg p-6 bg-white shadow-md"
+            >
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
-                <h3 className="text-xl font-bold text-gray-800">{company}</h3>
-                <span className="text-sm text-gray-500">{period}</span>
+                <h3 className="text-lg font-semibold text-gray-700">
+                  {company}
+                </h3>
+                <span className="text-sm text-gray-400">{period}</span>
               </div>
-              <p className="text-lg font-semibold text-[#418399] mb-2">
+
+              <p className="text-base font-medium text-[#6096B4] mb-3">
                 {position}
               </p>
-              <ul className="list-disc list-inside text-gray-700 space-y-1 mb-2">
+
+              <ul className="list-disc list-inside text-gray-600 space-y-1 mb-3">
                 {description.map((desc, idx) => (
                   <li key={idx}>{desc}</li>
                 ))}
               </ul>
+
               {techStack && techStack.length > 0 && (
                 <div className="flex flex-wrap gap-2">
                   {techStack.map((tech, idx) => (
                     <span
                       key={idx}
-                      className="bg-[#418399] text-white px-3 py-1 rounded-full text-sm font-medium"
+                      className="bg-[#EAF4F8] text-[#6096B4] px-3 py-1 rounded-full text-sm font-medium border border-[#BFD9E5]"
                     >
                       {tech}
                     </span>

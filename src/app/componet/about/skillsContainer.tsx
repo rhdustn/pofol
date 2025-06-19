@@ -78,7 +78,7 @@ export const SkillsContainer = ({ activeTab }: SkillsContainerProps) => {
     <div className="w-full max-w-3xl bg-white rounded-xl shadow-md p-6 mt-8">
       <h2 className="text-xl font-semibold text-[#418399] mb-6">{activeTab}</h2>
       {skills && (
-        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-gray-700">
+        <ul className="flex flex-col gap-6 text-gray-700">
           {skills.map((skill, index) => (
             <li key={index} className="flex items-start space-x-4">
               <Image
