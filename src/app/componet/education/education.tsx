@@ -13,7 +13,7 @@ interface ExperienceProps {
 
 export const EducationSection = ({ data }: ExperienceProps) => {
   return (
-    <section className="max-w-4xl mx-auto p-8 w-full ">
+    <section className="p-[1.5rem] md:p-[3rem] flex flex-col justify-center w-full gap-[2rem]">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {data.map(
           ({ id, company, position, period, description, techStack }) => (

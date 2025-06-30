@@ -5,7 +5,7 @@ interface BoxProps {
 
 export const Box = ({ title, content }: BoxProps) => {
   return (
-    <div className="border-4 border-white  bg-white/30 backdrop-blur-md rounded-2xl shadow-xl p-6 text-white w-full max-w-xl h-auto">
+    <div className="border-4 border-white  bg-white/30 backdrop-blur-md rounded-2xl shadow-xl p-6 text-white w-full max-w-xl h-auto transform transition-transform duration-300 hover:scale-105">
       <h2 className="text-xl font-semibold mb-3 text-white drop-shadow">
         {title}
       </h2>

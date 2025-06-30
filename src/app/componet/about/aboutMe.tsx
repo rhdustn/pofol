@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Box } from "./Box";
+
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -21,7 +22,7 @@ const Grid = styled.div`
 
 export const AboutMe = () => {
   return (
-    <Grid className="w-full max-w-5xl  py-2">
+    <Grid className="w-full   py-2">
       <Box
         title="침착하게 문제를 해결하는 데 노력하는 개발자"
         content="        예기치 못한 오류가 발생해도 당황하지 않고 로그를 활용해 원인을 분석하고,

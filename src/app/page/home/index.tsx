@@ -2,7 +2,7 @@ import { FaRegArrowAltCircleDown } from "react-icons/fa";
 
 export const HomePage = ({ onClick }: { onClick: () => void }) => {
   return (
-    <div className="w-full min-h-screen bg-gradient-to-b from-[#BDDDE4] to-[#F9F9F9] flex flex-col items-center justify-center px-6 py-10">
+    <div className="w-full h-[100vh] bg-gradient-to-b from-[#BDDDE4] to-[#F9F9F9] flex flex-col items-center justify-center px-6 py-10">
       <div className="fade-up flex flex-col md:flex-row items-center text-center gap-10 max-w-5xl">
         <h1 className="font-paperlogy text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-800 tracking-wide drop-shadow-lg leading-snug">
           프론트엔드 개발자

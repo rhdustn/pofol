@@ -16,7 +16,7 @@ export const ProjectsPage = () => {
 
   return (
     <section
-      className="p-[3rem] flex flex-col justify-center w-full min-h-screen gap-[2rem]
+      className="p-[1.5rem] md:p-[3rem] flex flex-col justify-center w-full min-h-screen gap-[2rem]
   bg-gradient-to-b from-[#E6EDF3] via-[#F0F4F8] to-[#ffffff] text-gray-800"
     >
       <h1 className="text-3xl text-center font-paperlogy ">Projects</h1>

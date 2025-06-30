@@ -6,6 +6,7 @@ export const experiencesData = [
     period: "2024.02 - 2025.02",
     description: [
       "React 및 Next.js를 활용한 웹 애플리케이션 개발",
+      "API 연동 및 보수작업",
       "TypeScript 기반 코드 리팩토링   및 유지보수",
       "Tailwind CSS를 사용한 UI/UX 개선",
     ],
