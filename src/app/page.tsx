@@ -6,6 +6,7 @@ import { HomePage } from "./page/home";
 import { ProjectsPage } from "./page/project";
 import { AboutPage } from "./page/about";
 import { EducationPage } from "./page/education";
+import { ToggleButton } from "./componet/toggle";
 
 export default function Home() {
   const [unscroll, setUnscroll] = useState(false);
@@ -53,7 +54,10 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-white relative">
+      <div className="fixed bottom-4 right-4">
+        <ToggleButton />
+      </div>
       <HomePage onClick={handleScrollDown} />
       <div ref={aboutRef}>
         <AboutPage />

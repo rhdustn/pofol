@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
 
 @font-face {
   font-family: "Paperlogy-8ExtraBold";
@@ -76,4 +79,16 @@ body {
 
 .about-container .about-box:nth-of-type(odd) {
   transform: translateY(1rem);
+}
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-slow {
+  animation: spin-slow 8s linear infinite;
 }

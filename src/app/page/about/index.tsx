@@ -4,8 +4,6 @@ import { SkillsContainer } from "@/app/componet/about/skillsContainer";
 import { AboutMe } from "@/app/componet/about/aboutMe";
 import { ExperienceSection } from "@/app/componet/about/experience";
 import { experiencesData } from "./constants";
-import Image from "next/image";
-import { ProfileImage } from "../../../../public";
 
 export const AboutPage = () => {
   const [activeTab, setActiveTab] = useState("Languages");
@@ -14,7 +12,6 @@ export const AboutPage = () => {
     { id: 1, title: "Languages" },
     { id: 2, title: "Frontend" },
     { id: 3, title: "Tools" },
-    // { id: 4, title: "" },
   ];
 
   return (
@@ -23,17 +20,9 @@ export const AboutPage = () => {
     bg-gradient-to-b from-[#BDDDE4] to-[#E6EDF3] text-white"
     >
       {" "}
-      <div className="flex flex-col items-start w-full  mx-auto">
-        <h1 className="text-3xl font-bold">About Me</h1>
+      <div className="flex flex-col items-start w-full max-w-4xl mx-auto">
+        <div className="text-3xl w-full font-bold">About Me</div>
         <div className="flex flex-col md:flex-row gap-10 h-full items-center">
-          <div className="relative w-[70vw] md:w-[40vw] h-[400px] hidden md:flex">
-            <Image
-              src={ProfileImage}
-              alt="Profile image"
-              fill
-              className="object-cover rounded-lg"
-            />
-          </div>
           <AboutMe />
         </div>
       </div>

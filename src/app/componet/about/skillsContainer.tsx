@@ -18,13 +18,18 @@ export const SkillsContainer = ({ activeTab }: SkillsContainerProps) => {
         <ul className="flex flex-col gap-6 text-gray-700">
           {skills.map((skill, index) => (
             <li key={index} className="flex items-start space-x-4">
-              <Image
-                src={skill.img}
-                alt={skill.title}
-                width={48}
-                height={48}
-                className="object-contain"
-              />
+              {skill.img ? (
+                <Image
+                  src={skill.img}
+                  alt={skill.title}
+                  width={48}
+                  height={48}
+                  className="object-contain"
+                />
+              ) : (
+                ""
+              )}
+
               <div>
                 <h3 className="text-lg font-bold">{skill.title}</h3>
                 <p className="text-sm">{skill.content}</p>
