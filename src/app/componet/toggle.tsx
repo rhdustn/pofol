@@ -27,6 +27,9 @@ export const ToggleButton = () => {
           <p>
             <strong>이메일:</strong> yeonsu@example.com
           </p>
+          <p>
+            <strong>이메일:</strong> yeonsu@example.com
+          </p>
         </div>
       )}
     </div>

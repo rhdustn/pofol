@@ -2,58 +2,28 @@
 
 import { ProjectContainer } from "@/app/componet/project/Container";
 import { Popup } from "@/app/componet/project/popup";
-import {
-  SiReact,
-  SiNextdotjs,
-  SiTypescript,
-  SiTailwindcss,
-} from "react-icons/si";
+
 import { useState } from "react";
+import { projectList } from "./mock";
 
 // Swiper 관련 import
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 
 export const ProjectsPage = () => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [selectedProjectId, setSelectedProjectId] = useState<number | null>(
+    null
+  );
 
-  const handlePopupOpen = () => setIsPopupOpen(true);
-  const handlePopupClose = () => setIsPopupOpen(false);
+  // 팝업 열기 (id만 저장)
+  const handlePopupOpen = (id: number) => setSelectedProjectId(id);
 
-  const projectList = [
-    {
-      title: "스터디 메이트 1",
-      content:
-        "사용자 기반 스터디 그룹 생성 및 참여 기능을 제공하는 웹 플랫폼입니다.",
-      techStack: [
-        { icon: <SiNextdotjs size={20} />, label: "Next.js" },
-        { icon: <SiTypescript size={20} />, label: "TypeScript" },
-        { icon: <SiTailwindcss size={20} />, label: "TailwindCSS" },
-      ],
-    },
-    {
-      title: "스터디 메이트 2",
-      content:
-        "사용자 기반 스터디 그룹 생성 및 참여 기능을 제공하는 웹 플랫폼입니다.",
-      techStack: [
-        { icon: <SiReact size={20} />, label: "React" },
-        { icon: <SiNextdotjs size={20} />, label: "Next.js" },
-        { icon: <SiTypescript size={20} />, label: "TypeScript" },
-        { icon: <SiTailwindcss size={20} />, label: "TailwindCSS" },
-      ],
-    },
-    {
-      title: "스터디 메이트 3",
-      content:
-        "사용자 기반 스터디 그룹 생성 및 참여 기능을 제공하는 웹 플랫폼입니다.",
-      techStack: [
-        { icon: <SiReact size={20} />, label: "React" },
-        { icon: <SiNextdotjs size={20} />, label: "Next.js" },
-        { icon: <SiTypescript size={20} />, label: "TypeScript" },
-        { icon: <SiTailwindcss size={20} />, label: "TailwindCSS" },
-      ],
-    },
-  ];
+  // 팝업 닫기
+  const handlePopupClose = () => setSelectedProjectId(null);
+
+  // 선택된 프로젝트 찾기
+  const selectedProject =
+    projectList.find((p) => p.id === selectedProjectId) ?? null;
 
   return (
     <section
@@ -67,8 +37,8 @@ export const ProjectsPage = () => {
           modules={[Navigation, Pagination]}
           spaceBetween={20}
           slidesPerView={1}
-          pagination={{ clickable: true }}
           navigation
+          className="custom-swiper"
           breakpoints={{
             640: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
@@ -78,17 +48,21 @@ export const ProjectsPage = () => {
           {projectList.map((project, idx) => (
             <SwiperSlide key={idx}>
               <ProjectContainer
+                id={project.id}
                 title={project.title}
+                thumbNail={project.thumbNail}
                 content={project.content}
                 techStack={project.techStack}
-                onClick={handlePopupOpen}
+                onClick={() => handlePopupOpen(project.id)}
               />
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
 
-      {isPopupOpen && <Popup onClose={handlePopupClose} />}
+      {selectedProject && (
+        <Popup project={selectedProject} onClose={handlePopupClose} />
+      )}
     </section>
   );
 };
